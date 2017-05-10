@@ -1,4 +1,4 @@
-const { createStore } = require('./redux.min')
+const { createStore } = require('./lib/redux.min')
 
 const todos = [
 	{id: 0, name: 'HELLO WWE', completed: false},
@@ -114,3 +114,231 @@ store.dispatch(removeTodoAction(1))
 store.dispatch(toggleTodoAction(2))
 store.dispatch(toggleTodoAction(0))
 store.dispatch(searchTodoAction("HElLo "))
+
+/*
+=========
+   OUTPUT
+=========
+
+
+Current State:
+  {
+   "nextId": 2,
+   "todos": [
+      {
+         "id": 0,
+         "name": "HELLO WWE",
+         "completed": false
+      },
+      {
+         "id": 1,
+         "name": "Play Games",
+         "completed": false
+      }
+   ]
+}
+
+
+CREATE_TODO:  WTF WTF WTF !!!
+
+
+Current State:
+  {
+   "nextId": 3,
+   "todos": [
+      {
+         "id": 0,
+         "name": "HELLO WWE",
+         "completed": false
+      },
+      {
+         "id": 1,
+         "name": "Play Games",
+         "completed": false
+      },
+      {
+         "id": 2,
+         "name": "WTF WTF WTF !!!",
+         "completed": false
+      }
+   ]
+}
+
+
+CREATE_TODO:  YOYOYOYOYO !!!
+
+
+Current State:
+  {
+   "nextId": 4,
+   "todos": [
+      {
+         "id": 0,
+         "name": "HELLO WWE",
+         "completed": false
+      },
+      {
+         "id": 1,
+         "name": "Play Games",
+         "completed": false
+      },
+      {
+         "id": 2,
+         "name": "WTF WTF WTF !!!",
+         "completed": false
+      },
+      {
+         "id": 3,
+         "name": "YOYOYOYOYO !!!",
+         "completed": false
+      }
+   ]
+}
+
+
+DELETE_TODO:  3
+
+
+Current State:
+  {
+   "nextId": 4,
+   "todos": [
+      {
+         "id": 0,
+         "name": "HELLO WWE",
+         "completed": false
+      },
+      {
+         "id": 1,
+         "name": "Play Games",
+         "completed": false
+      },
+      {
+         "id": 2,
+         "name": "WTF WTF WTF !!!",
+         "completed": false
+      }
+   ]
+}
+
+
+UPDATE_TODO:  2
+
+
+Current State:
+  {
+   "nextId": 4,
+   "todos": [
+      {
+         "id": 0,
+         "name": "HELLO WWE",
+         "completed": false
+      },
+      {
+         "id": 1,
+         "name": "Play Games",
+         "completed": false
+      },
+      {
+         "id": 2,
+         "name": "HELLO FRIEND!!",
+         "completed": false
+      }
+   ]
+}
+
+
+DELETE_TODO:  1
+
+
+Current State:
+  {
+   "nextId": 4,
+   "todos": [
+      {
+         "id": 0,
+         "name": "HELLO WWE",
+         "completed": false
+      },
+      {
+         "id": 2,
+         "name": "HELLO FRIEND!!",
+         "completed": false
+      }
+   ]
+}
+
+TOGGLE_TODO:  2
+
+
+Current State:
+  {
+   "nextId": 4,
+   "todos": [
+      {
+         "id": 0,
+         "name": "HELLO WWE",
+         "completed": false
+      },
+      {
+         "id": 2,
+         "name": "HELLO FRIEND!!",
+         "completed": true
+      }
+   ]
+}
+
+TOGGLE_TODO:  0
+
+
+Current State:
+  {
+   "nextId": 4,
+   "todos": [
+      {
+         "id": 0,
+         "name": "HELLO WWE",
+         "completed": true
+      },
+      {
+         "id": 2,
+         "name": "HELLO FRIEND!!",
+         "completed": true
+      }
+   ]
+}
+
+
+SEARCH_TODO:  HElLo 
+
+
+Current State:
+  {
+   "nextId": 4,
+   "todos": [
+      {
+         "id": 0,
+         "name": "HELLO WWE",
+         "completed": true
+      },
+      {
+         "id": 2,
+         "name": "HELLO FRIEND!!",
+         "completed": true
+      }
+   ],
+   "filteredTodos": [
+      {
+         "id": 0,
+         "name": "HELLO WWE",
+         "completed": true
+      },
+      {
+         "id": 2,
+         "name": "HELLO FRIEND!!",
+         "completed": true
+      }
+   ]
+}
+
+*/
