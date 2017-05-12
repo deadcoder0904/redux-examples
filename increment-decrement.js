@@ -10,14 +10,14 @@ const initialState = { counter: 0 }
 const counterReducer = (state = initialState, action) => {
 	switch(action.type) {
 		case ADD:
-			console.log("\n\nADD ", action.payload);
+			console.log("\n\nADD 1");
 			return {
-				counter: state.counter + action.payload
+				counter: state.counter + 1
 			}
 		case SUBTRACT:
-			console.log("\n\SUBTRACT ", action.payload);
+			console.log("\n\SUBTRACT 1");
 			return {
-				counter: state.counter - action.payload
+				counter: state.counter - 1
 			}
 		default:
 			return state
@@ -28,8 +28,8 @@ const counterReducer = (state = initialState, action) => {
 const store = createStore(counterReducer)
 
 /* action creators */
-const addAction = payload => ({type: ADD, payload })
-const subtractAction = payload => ({type: SUBTRACT, payload })
+const addAction = () => ({type: ADD })
+const subtractAction = () => ({type: SUBTRACT })
 
 
 const logger = () => console.log("\n\nCURRENT STATE : \n",JSON.stringify(store.getState(),null,3))
@@ -40,11 +40,15 @@ logger()
 const unsubscribe = store.subscribe(logger)
 // unsubscribe()
 
-store.dispatch(addAction(5))
-store.dispatch(subtractAction(51))
-store.dispatch(addAction(12))
-store.dispatch(subtractAction(341))
-store.dispatch(addAction(512))
+store.dispatch(addAction())
+store.dispatch(subtractAction())
+store.dispatch(addAction())
+store.dispatch(addAction())
+store.dispatch(addAction())
+store.dispatch(addAction())
+store.dispatch(subtractAction())
+store.dispatch(subtractAction())
+store.dispatch(addAction())
 
 
 /*
@@ -53,6 +57,22 @@ store.dispatch(addAction(512))
 =========
 
 
+CURRENT STATE : 
+ {
+   "counter": 0
+}
+
+
+ADD 1
+
+
+CURRENT STATE : 
+ {
+   "counter": 1
+}
+
+SUBTRACT 1
+
 
 CURRENT STATE : 
  {
@@ -60,46 +80,64 @@ CURRENT STATE :
 }
 
 
-ADD  5
+ADD 1
 
 
 CURRENT STATE : 
  {
-   "counter": 5
-}
-
-SUBTRACT  51
-
-
-CURRENT STATE : 
- {
-   "counter": -46
+   "counter": 1
 }
 
 
-ADD  12
+ADD 1
 
 
 CURRENT STATE : 
  {
-   "counter": -34
-}
-
-SUBTRACT  341
-
-
-CURRENT STATE : 
- {
-   "counter": -375
+   "counter": 2
 }
 
 
-ADD  512
+ADD 1
 
 
 CURRENT STATE : 
  {
-   "counter": 137
+   "counter": 3
+}
+
+
+ADD 1
+
+
+CURRENT STATE : 
+ {
+   "counter": 4
+}
+
+SUBTRACT 1
+
+
+CURRENT STATE : 
+ {
+   "counter": 3
+}
+
+SUBTRACT 1
+
+
+CURRENT STATE : 
+ {
+   "counter": 2
+}
+
+
+ADD 1
+
+
+CURRENT STATE : 
+ {
+   "counter": 3
 }
 
 */

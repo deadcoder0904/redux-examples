@@ -68,7 +68,7 @@ const todoReducer = (state = initialState, action) => {
 /* store */
 const store = createStore(todoReducer)
 
-/* action creator */
+/* action creators */
 const addTodoAction = payload => ({
 	type: CREATE_TODO,
 	payload
